@@ -4,6 +4,15 @@ Trying to get a reindeer generator in R Shiny working - until Christmas!
 Things I'm good at: digitally drawing reindeers.
 Things I'm not good at: combining them all in a fancy R Shiny app.
 
+## Table of contents
+- preview: how it should look like in the end
+- a description of all the jigsaw pieces needed to create a reindeer
+  - all image layers are stored in folders in this repo
+- my current issues regarding the R Shiny app that I am trying to make
+
+## All I want for Christmas
+... is to figure out how R Shiny works.
+
 The end product should look something like this, though (preview as sketched out in [GIMP](https://www.gimp.org/)):
 Note: really quick and dirty sketch not meant to represent appropriate alignment, scale and general aesthetics.
 
@@ -47,3 +56,10 @@ Necessarily, all of the different items are safed as background colour and outli
 
 ### GIMP file
 I also included the .xcf file from GIMP. The different layers as well as the original drawings are stored there. You can toggle the different items by switching the different layers on and off. Don't forget to switch on the corresponding outline layer, though. Otherwise, it will look a bit odd. The GIMP file can also be opened in Photoshop.
+
+## The R Shiny app
+So far, it's an idea. Nothing more. It should work, somehow. I just haven't found out how, yet.
+The general idea: select a coat colour via buttons, toggle highlights or accessories on and off, pick different versions of items (e.g. large or small antlers).
+
+**03.12.2018 - 21 days until christmas** 
+I've managed to change between basic coat colors with radio buttons. Unsolved so far: trying to get the outlines of the reindeer on top of the coat. See my call for help in [stack overflow](https://stackoverflow.com/questions/53601495/overlaying-images-in-r-shiny)

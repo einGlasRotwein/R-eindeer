@@ -61,5 +61,8 @@ I also included the .xcf file from GIMP. The different layers as well as the ori
 So far, it's an idea. Nothing more. It should work, somehow. I just haven't found out how, yet.
 The general idea: select a coat colour via buttons, toggle highlights or accessories on and off, pick different versions of items (e.g. large or small antlers).
 
+**04.12.2018 - 20 days until christmas**
+Finally, the layers are overlapping due to (how appropriate) [magick](https://cran.r-project.org/web/packages/magick/vignettes/intro.html). Thank you [blondeclover](https://stackoverflow.com/users/8099834/blondeclover) and [Ian Wesley](https://stackoverflow.com/users/7384676/ian-wesley) from [Stackoverflow](https://stackoverflow.com) for helping out!
+
 **03.12.2018 - 21 days until christmas** 
 I've managed to change between basic coat colors with radio buttons. Unsolved so far: trying to get the outlines of the reindeer on top of the coat. See my call for help in [stack overflow](https://stackoverflow.com/questions/53601495/overlaying-images-in-r-shiny)

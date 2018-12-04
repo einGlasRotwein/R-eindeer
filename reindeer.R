@@ -1,4 +1,5 @@
 library(shiny)
+library(magick)
 
 ui <- fluidPage(
   
@@ -10,31 +11,39 @@ ui <- fluidPage(
       ),
     
     mainPanel(
-      imageOutput("reindeer_coat"),
-      imageOutput("reindeer_outline")
+      imageOutput("reindeer")
       )
     )
   )
 
-
 server <- function(input,output){
   
-  getImage <- reactive({
-    list(src = paste0("./coat/reindeer_", input$check1, ".png"),
-         width = 500,
-         height = 500)
-  })
+  get_image <- function(type, color) {
+    image_read(file.path(type, paste0(color, ".png")))
+  }
   
-  output$reindeer_coat <- renderImage({
-    getImage()
-  }, deleteFile = FALSE)
-  
-  output$reindeer_outline <- renderImage({
-    return(list(src = "./outlines/reindeer_outline.png",
-                width = 500,
+  output$reindeer <- renderImage({
+    
+    # load the images
+    coat <- get_image("coat", paste0("reindeer_", input$check1))
+    outline <- get_image("outlines", "reindeer_outline")
+    
+    # make the reindeer: overlay in order
+    reindeer <- c(coat, outline)
+    
+    # create a temp file
+    tmpfile <- reindeer %>%
+      image_mosaic() %>%
+      image_flatten() %>%
+      image_write(tempfile(fileext='jpg'), format = 'jpg')
+    
+    # render the file
+    return(list(src = tmpfile,
                 height = 500,
-                contentType = 'image/png'))
-  }, deleteFile = FALSE)
+                width = 500,
+                alt = "Your reindeer",
+                contentType = "image/jpg"))
+  }, deleteFile = TRUE)
 }
 
 shinyApp(ui = ui, server = server)
